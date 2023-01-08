@@ -125,10 +125,7 @@ function getPasswordOptions() {
   if(confirm("Include special characters?")){
     userChoice = userChoice.concat(specialCharacters)
   }
-
-
-
-
+  return userChoice;
 }
 
 // Function for getting a random element from an array
