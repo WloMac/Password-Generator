@@ -106,18 +106,35 @@ let upperCasedCharactersRandom = Math.floor(Math.random()*upperCasedCharacters.l
 // Use concated array to pick random letters 
 // Create password
 
+let userChoice = [];
+
 
 
 
 // Function to prompt user for password options
 function getPasswordOptions() {
- 
+  if(confirm("Include lowercase characters?")){
+    userChoice = userChoice.concat(lowerCasedCharacters);
+  }
+  if(confirm("Include uppercase characters?")){
+    userChoice = userChoice.concat(upperCasedCharacters);
+  }
+  if(confirm("Include numeric characters?")){
+    userChoice = userChoice.concat(numericCharacters);
+  }
+  if(confirm("Include special characters?")){
+    userChoice = userChoice.concat(specialCharacters)
+  }
+
+
 
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  // let userPassword = "";
+  // for
 
 }
 
@@ -135,7 +152,7 @@ let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  promptOption();
+  getPasswordOptions();
   
   let password = generatePassword();
   let passwordText = document.querySelector('#password');
@@ -143,20 +160,6 @@ function writePassword() {
   passwordText.value = password;
   
 }
-
-function promptOption() {
-
-option1 = prompt("Include lowercase characters? Y/N");
-option2 = prompt("Include uppercase characters? Y/N");
-option3 = prompt("Include numeric characters? Y/N");
-option4 = prompt("Include special characters? Y/N"); 
-
-}
-
-let option1;
-let option2;
-let option3;
-let option4;
 
 
 
