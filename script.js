@@ -138,7 +138,7 @@ function getRandom(arr) {
 // Function to generate password with user input
 // Needs to go thru concat array and pick random chars
 function generatePassword() {
-  return option1+option2+option3+option4;
+  return userChoice;
   
 
 }
@@ -164,7 +164,3 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 //Prompt answer function
-
-function promptAnswer() {
-  
-}
