@@ -104,7 +104,12 @@ let passwordlength = 0;
 // Function to prompt user for password options
 function getPasswordOptions() {
   let userChoice = [];
-      passwordlength = prompt("How long is your password?");
+  while(true){
+      passwordlength = prompt("Please provide password lenght between 10 and 64 characters");
+        if(passwordlength >= 10 && passwordlength <= 64){
+          break;
+        }
+  }
   let lowerCaseOption = confirm("Include lowercase characters?");
   let upperCaseOption = confirm("Include uppercase characters?");
   let numericOption = confirm("Include numeric characters?");
