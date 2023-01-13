@@ -88,58 +88,61 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-let specialCharactersRandom = Math.floor(Math.random()*specialCharacters.length);
-let numericCharactersRandom = Math.floor(Math.random()*numericCharacters.length);
-let lowerCasedCharactersRandom = Math.floor(Math.random()*lowerCasedCharacters.length);
-let upperCasedCharactersRandom = Math.floor(Math.random()*upperCasedCharacters.length);
 
 // Option for password characters
     // Make prompt for each character type - done
-    // Save user response as variable - done 
-      // How to save reponse as variable? 
-        // Create loop which will refuse other choose than Yes or No
-            // What loop to use?
-        // Create if condition to:
-        // Store answer as boolean expression
+    // Create if condition to:
+    // Store answer as boolean expression
 // Use this data to create to concate array
   // Create if condiotion to add choosen arrays to create new big array
 // Use concated array to pick random letters 
 // Create password
 
-let userChoice = [];
 
-
-
+let passwordlength = 0;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  if(confirm("Include lowercase characters?")){
+  let userChoice = [];
+      passwordlength = prompt("How long is your password?");
+  let lowerCaseOption = confirm("Include lowercase characters?");
+  let upperCaseOption = confirm("Include uppercase characters?");
+  let numericOption = confirm("Include numeric characters?");
+  let specialCharOption = confirm("Include special characters?");
+      
+  if(lowerCaseOption){
     userChoice = userChoice.concat(lowerCasedCharacters);
   }
-  if(confirm("Include uppercase characters?")){
+  if(upperCaseOption){
     userChoice = userChoice.concat(upperCasedCharacters);
   }
-  if(confirm("Include numeric characters?")){
+  if(numericOption){
     userChoice = userChoice.concat(numericCharacters);
   }
-  if(confirm("Include special characters?")){
+  if(specialCharOption){
     userChoice = userChoice.concat(specialCharacters)
   }
   return userChoice;
+  //ask for input of pass charc amount
 }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  // let userPassword = "";
-  // for
-
+  let userChoiceRandom = arr[Math.floor(Math.random()*arr.length)];
+  return userChoiceRandom;
 }
 
 // Function to generate password with user input
 // Needs to go thru concat array and pick random chars
-function generatePassword() {
-  return userChoice;
+function generatePassword(runcode) {
+  let userpassword = "";
+  for (let i = 0; i < passwordlength; i++) {
+       
+    userpassword += getRandom(runcode);
+  }
   
+  return userpassword;
 
 }
 
@@ -149,9 +152,9 @@ let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  getPasswordOptions();
+  let runcode = getPasswordOptions();
   
-  let password = generatePassword();
+  let password = generatePassword(runcode);
   let passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -162,5 +165,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-//Prompt answer function
